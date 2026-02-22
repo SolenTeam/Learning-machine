@@ -1,0 +1,32 @@
+{
+  "name": "demo",
+  "start": "input1",
+  "blocks": {
+    "input1": {
+      "type": "input",
+      "prompt": "Hi! Say something:",
+      "next": "match1"
+    },
+    "match1": {
+      "type": "match",
+      "patterns": ["hello", "hi", "hey", "good morning"],
+      "similarity": 0.6,
+      "onMatch": "randomReply",
+      "onFail": "fallback"
+    },
+    "randomReply": {
+      "type": "random",
+      "responses": [
+        "Hello there!",
+        "Hey, nice to see you!",
+        "Hi! How are you?"
+      ],
+      "next": null
+    },
+    "fallback": {
+      "type": "text",
+      "text": "I didn't really get that, but I'm learning!",
+      "next": null
+    }
+  }
+}
